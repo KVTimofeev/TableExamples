@@ -80,7 +80,7 @@ public class oncam : MonoBehaviour {
 			TextMesh charSimb=simb.GetComponentInChildren<TextMesh>() as TextMesh;
 
 			charSimb.text=str[str_len-1]+"";
-			simb.name=charSimb+"";
+			simb.name=str[str_len-1]+"";
 			str_len--;
 			bukv_x+=1.5f;
 			}

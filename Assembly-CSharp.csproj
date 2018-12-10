@@ -55,6 +55,7 @@
      <Compile Include="Assets\okno_calc_script.cs" />
      <Compile Include="Assets\oncam.cs" />
      <Compile Include="Assets\scripts\Parser.cs" />
+     <Compile Include="Assets\scripts\helper.cs" />
      <Compile Include="Assets\scripts\tables.cs" />
      <Compile Include="Assets\simbol_script.cs" />
  <Reference Include="UnityEngine.UI">

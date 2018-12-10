@@ -7,6 +7,7 @@ public class tables  {
 	public static int a;
 	public static int b;
 	public static int answer;
+	public static string Managerlevel="ManagerLevel";
 	public static string enter_answer;
 	public static string str_id;
 	public static float zone_unvisible_z=-30f;

@@ -23,6 +23,8 @@ public class simbol_script : MonoBehaviour {
 		enterText = GameObject.Find ("for_entered_text_answer");
 		TextMesh txtSimbol = (TextMesh)gameObject.GetComponentInChildren<TextMesh> () as TextMesh;
 		TextMesh txt_enterText = (TextMesh)enterText.GetComponent<TextMesh> () as TextMesh;
+		manageLev manage=(manageLev)GameObject.Find(tables.Managerlevel).GetComponent<manageLev>() as manageLev;
+		manage.DoItInvisible (gameObject);
 		txt_enterText.text += txtSimbol.text;
 		if (GameObject.Find ("delete(Clone)") == null) {
 			GameObject del=Instantiate(deleteBtn);

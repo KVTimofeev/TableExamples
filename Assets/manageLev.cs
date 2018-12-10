@@ -14,6 +14,19 @@ public class manageLev : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void DoItInvisible(GameObject go){
+
+		float x = go.transform.position.x;
+		float y = go.transform.position.y;
+		go.transform.position = new Vector3 (x,y,tables.zone_unvisible_z);
+	}
+	public void DoItVisible(GameObject go){
+		float x = go.transform.position.x;
+		float y = go.transform.position.y;
+		go.transform.position = new Vector3 (x,y,tables.zone_visible_z);
+	}
+
 	public void EndLevel(){
 		GameObject calc = GameObject.Find ("okno_calc");
 		GameObject pict_answ = GameObject.Find ("picter_answered_wind");
