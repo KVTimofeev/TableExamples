@@ -2,19 +2,26 @@
 using System.Collections;
 
 public class oncam : MonoBehaviour {
+	//PictureGo - переменная в которой хранится массив спрайтов картинок которые угадывает пользователь, т.е. является меняемым фоном в current_fon
 	public Sprite[] PictureGo;
+	//current спрайт который является текущим фоном, т.к. когда пользователь угадывает картинку эта переменная менятся на другую картинку из PictureGo
 	public Sprite current;
+	//kvadrat это спрайт на которм пишется математический пример (квадритик в двумерном массиве), который вычисляет пользователь при его нажатии
 	public GameObject kvadrat;
+	//okno_calc - составной объект, который появляется при нажатии пользователя на kvadrat. в окне также отображается как okno_calc;
 	public GameObject Okno_calc;
+	//simbol - буква, принажатии которой набирается текст ответа.
 	public GameObject simbol;
 	int currentIndexQuest=0;
 	// Use this for initialization
 	void Start () {
+		//не хватает появлениея ответа при угадывании всех примеров!!!!!!!!!!!!!!!!
+
 		if (tables.PictureGo == null) {
 			tables.PictureGo = PictureGo;
 			tables.currentQuestIndex = 0;
-			tables.answers_PicturesGo = new string[]{"домик","пустыня","коала","пингвины"};
-			//current=PictureGo[currentIndexQuest];
+			//tables.answers_PicturesGo = new string[]{"домик","пустыня","коала","пингвины"};
+			current=PictureGo[currentIndexQuest];
 
 
 		} else {
@@ -29,8 +36,8 @@ public class oncam : MonoBehaviour {
 		currentIndexQuest = tables.currentQuestIndex;
 
 		okno_calc ();
-		float float_x = -7.5f;
-		float float_y = 4f;
+		float float_x = -7.4f;
+		float float_y = 4.2f;
 		int i = 1;
 		tables.countSquares = 0;
 		while (float_y>0f) {
@@ -39,22 +46,18 @@ public class oncam : MonoBehaviour {
 			GameObject go = Instantiate (kvadrat) as GameObject;
 			go.transform.position = new Vector2 (float_x, float_y);
 				TextMesh txtOnKvadratik=(TextMesh)go.GetComponentInChildren<TextMesh>() as TextMesh;
-				txtOnKvadratik.text=create_example();
+				helper helperCreateExample = helper.TakeHelper();
+				txtOnKvadratik.text=helperCreateExample.create_example();
 				go.name="sc="+i;
-				//go.tag="square";
+
 			i++;
 			float_x += 2f;
 			}
 			float_x=-7.5f;
-			float_y-=1;
+			float_y-=1.15f;
 		}
 
 		okno_enter_answer ();
-	}
-	string create_example(){
-		int a = Random.Range (1,9);
-		int b = Random.Range (1, 9);
-		return a + "+" + b;
 	}
 
 	void okno_calc(){
@@ -65,13 +68,12 @@ public class oncam : MonoBehaviour {
 
 	void okno_enter_answer(){
 		float bukv_x = -8f;
-		float bukv_y = -1.3f;
-		//string str="slovo";
+		float bukv_y = -1.8f;
 		tables.answer_current_fon = tables.answers_PicturesGo[currentIndexQuest];
-
 		string str = tables.answer_current_fon;
-		///
-		str = Shuffle (str);
+		helper helpForAnswerStr = helper.TakeHelper ();
+		str = helpForAnswerStr.addedSimbols (str, str.Length + 4);
+		str = helpForAnswerStr.Shuffle (str);
 		int str_len = str.Length;
 		while (str_len>0) {
 			GameObject simb = Instantiate (simbol) as GameObject;
@@ -102,44 +104,6 @@ public class oncam : MonoBehaviour {
 			array[n] = value;
 		}
 		return new string(array);
-	}
-
-	string slivki(string str){
-		int lastSimb = str.Length-1;
-		while (lastSimb>=0) {
-
-			try{
-
-				int r=Random.Range(0,lastSimb);
-				char temp=str[r];
-
-
-				str=str.Remove(r,1);
-
-					
-
-
-				str=str.Insert(r,str[lastSimb]+"");
-				//str[r]=str[lastSimb];
-				//str[lastSimb]=temp;
-
-					
-
-				str=str.Remove(lastSimb,1);
-					
-
-				
-				str=str.Insert(lastSimb,temp+"");
-				Debug.Log(str+" "+lastSimb);
-				lastSimb--;
-
-			}catch{
-				Debug.Log("ArgumentOutOfRange "+lastSimb);
-				return "";
-			}
-
-		}
-		return str;
 	}
 
 

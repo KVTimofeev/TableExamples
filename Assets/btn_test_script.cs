@@ -14,6 +14,7 @@ public class btn_test_script : MonoBehaviour {
 	}
 	void OnMouseDown(){
 		int enter_ans = int.Parse (tables.enter_answer);
+
 		if (enter_ans == tables.answer) {
 			GameObject square=GameObject.Find(tables.str_id);
 			GameObject okno_calc = GameObject.Find ("okno_calc");

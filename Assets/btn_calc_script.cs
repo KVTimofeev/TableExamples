@@ -19,6 +19,7 @@ public class btn_calc_script : MonoBehaviour {
 		TextMesh txtSolut_okno = (TextMesh)solut_okno.GetComponentInChildren<TextMesh>() as TextMesh;
 		TextMesh txtBtn = (TextMesh)gameObject.GetComponentInChildren<TextMesh>() as TextMesh;
 		txtSolut_okno.text += txtBtn.text;
+		//enter_answer также используется в test_btn
 		tables.enter_answer += txtBtn.text;
 	}
 }

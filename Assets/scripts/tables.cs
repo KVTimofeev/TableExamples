@@ -15,7 +15,7 @@ public class tables  {
 	public static string answer_current_fon;
 	public static Sprite[] PictureGo;
 	public static Sprite current_s_srite;
-	public static string[] answers_PicturesGo;
+	public static string[] answers_PicturesGo =new string[]{"домик","пустыня","коала","пингвины"};
 	public static int currentQuestIndex=0;
 	public static int countSquares = 0;
 
