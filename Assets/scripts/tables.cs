@@ -4,8 +4,8 @@ using System.Collections;
 public class tables  {
 
 	// Use this for initialization
-	public static int a;
-	public static int b;
+	//public static int a;
+	//public static int b;
 	public static int answer;
 	public static string Managerlevel="ManagerLevel";
 	public static string enter_answer;

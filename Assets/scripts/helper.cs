@@ -9,11 +9,25 @@ public class helper {
 		}
 		return singleObj;
 	}
-	//данная функция пишет пример наквадратике
-	public string create_example(){
-		int a = Random.Range (1,9);
-		int b = Random.Range (1, 9);
-		return a + "+" + b;
+	//данная функция создает пример наквадратике
+	public void create_example(string example,int answer){
+		//int a = Random.Range (1,9);
+		//int b = Random.Range (1, 9);
+		Summ sum = new Summ ();
+		example= sum.StrExample();
+		answer = sum.Answer ();
+	}
+
+	public int[] ShuffleInts(int[] mass){
+		int n = mass.Length;
+		while (n>1) {
+			n--;
+			int r=Random.Range(0,n+1);
+			int val=mass[r];
+			mass[r]=mass[n];
+			mass[n]=val;
+			}
+		return mass;
 	}
 
 
